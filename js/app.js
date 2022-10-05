@@ -57,6 +57,10 @@ const loginUser = async () => {
 
   const user = users.find(user => user.email === email);
   console.log(user)
+
+  if (!user) {
+    return alert('Los datos no coinciden')
+  }
   
   if (user.password === password) {
     localStorage.setItem('role', user.role)
@@ -65,8 +69,6 @@ const loginUser = async () => {
     alert('Los datos no coinciden')
   }
 }
-
-loginUser()
 
 const obtenerUsers = async () => {
   const results = await fetch('http://localhost:3000/user')
