@@ -56,6 +56,7 @@ const loginUser = async () => {
   const users = await result.json()
 
   const user = users.find(user => user.email === email);
+  console.log(user)
   
   if (user.password === password) {
     localStorage.setItem('role', user.role)
